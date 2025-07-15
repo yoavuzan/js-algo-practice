@@ -11,8 +11,15 @@ Notes
 All test cases contain valid numbers.
 */
 
-function mod( /*args*/ ) {
-  //your code
+function mod(num1, num2) {
+  if (num1 < 0) {
+    let calmod = Math.abs(num1) % num2;
+    if (calmod != 0) {
+      return num2 - calmod;
+    }
+    return 0;
+  }
+  return num1 % num2;
 }
 
 exports.solution = mod;

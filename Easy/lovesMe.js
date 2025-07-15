@@ -14,8 +14,16 @@ Remember to return a string.
 The first phrase is always "Loves me".
 */
 
-function lovesMe( /*args*/ ) {
-  //your code
+function lovesMe(length) {
+  const lovesMeOrNot = { 0: "Loves me, ", 1: "Loves me not, " };
+  let res = "";
+  let i = 0;
+
+  while (i < length - 1) {
+    res += lovesMeOrNot[i % 2];
+    ++i;
+  }
+  return res + lovesMeOrNot[i % 2].toUpperCase().replace(', ','');
 }
 
 exports.solution = lovesMe;

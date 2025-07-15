@@ -10,8 +10,17 @@ Notes
 Keep the same ordering in the output.
 */
 
-function returnUnique( /*args*/ ) {
-  //your code
+function returnUnique(arr) {
+  const counter = arr.reduce((dic, num) => {
+    if (num in dic) {
+      dic[num]++;
+    } else {
+      dic[num] = 1;
+    }
+    return dic;
+  }, {});
+
+  return arr.filter((key) => counter[key] === 1);
 }
 
 exports.solution = returnUnique;

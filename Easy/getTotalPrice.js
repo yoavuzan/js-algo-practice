@@ -40,8 +40,10 @@ Notes
 There might be a floating point precision problem in here...
 */
 
-function getTotalPrice( /*args*/ ) {
-  //your code
+function getTotalPrice(items) {
+  return Number(
+    items.reduce((sum, item) => sum + item.quantity * item.price, 0).toFixed(1)
+  );
 }
 
 exports.solution = getTotalPrice;

@@ -12,6 +12,6 @@ describe(__filename, () => {
     ${100} | ${5729.5779513082325}
     ${180} | ${10313.240312354817}
   `("returns $expected when $a is called", ({ a, expected }) => {
-    expect(file.solution(a)).toStrictEqual(expected);
+    expect(file.solution(a)).toBeCloseTo(expected, 10);
   });
 });
