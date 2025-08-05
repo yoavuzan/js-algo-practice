@@ -10,8 +10,13 @@ isPandigital(90864523148909) ➞ false
 isPandigital(112233445566778899) ➞ false
 */
 
-function isPandigital( /*args*/ ) {
-  //your code
+function isPandigital(number) {
+  const mySet = new Set();
+  while (number > 0){
+    mySet.add(number % 10)
+    number = Math.floor(number / 10)
+  }
+  return mySet.size === 10
 }
 
 exports.solution = isPandigital;

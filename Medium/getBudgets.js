@@ -15,8 +15,8 @@ getBudgets([
 ]) ➞ 62600
 */
 
-function getBudgets( /*args*/ ) {
-  //your code
+function getBudgets(peoples) {
+  return peoples.reduce((sum, people) => (sum += people.budget), 0);
 }
 
 exports.solution = getBudgets;

@@ -16,8 +16,18 @@ Notes
 The given string will never have more than one missing letter.
 */
 
-function missingLetter( /*args*/ ) {
-  //your code
+function missingLetter(string) {
+  let expectedCode = string.charCodeAt(0);
+
+  for (let char of string) {
+    if (char.charCodeAt(0) !== expectedCode) {
+      return String.fromCharCode(expectedCode);
+    }
+    expectedCode++;
+  }
+
+  return "No Missing Letter";
 }
+
 
 exports.solution = missingLetter;

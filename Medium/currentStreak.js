@@ -43,8 +43,36 @@ The today parameter will always be greater than or equal to the last date in the
 An empty array should return 0.
 */
 
-function currentStreak( /*args*/ ) {
-  //your code
-}
+function currentStreak(date, dates) {
+  if (dates.length === 0) return 0;
 
+  // Convert current date string to Date object
+  const currentDate = new Date(date);
+
+  // Check if last date in array matches the given current date
+  if (date !== dates[dates.length - 1].date) {
+    return 0;
+  }
+
+  // Convert all date strings in the array to Date objects
+  const dateObjects = dates.map((d) => new Date(d.date));
+
+  let streak = 1; // We already know the last date matches
+
+  // Traverse backward from the second last date
+  for (let i = dateObjects.length - 2; i >= 0; i--) {
+    const current = dateObjects[i];
+    const next = dateObjects[i + 1];
+
+    const diffInTime = next - current;
+    const diffInDays = diffInTime / (1000 * 60 * 60 * 24);
+
+    if (diffInDays === 1) {
+      streak++;
+    } else {
+      break;
+    }
+  }
+  return streak;
+}
 exports.solution = currentStreak;

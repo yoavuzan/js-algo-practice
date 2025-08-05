@@ -21,7 +21,7 @@ Notes
 Coordinates can be positive or negative integers.
 */
 
-function overlappingRectangles( /*args*/ ) {
+function overlappingRectangles(Coordinates1  ) {
   //your code
 }
 

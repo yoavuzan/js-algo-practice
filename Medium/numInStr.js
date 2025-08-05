@@ -14,8 +14,17 @@ The strings can contain white spaces or any type of characters.
 Bonus: Try solving this without regex.
 */
 
-function numInStr( /*args*/ ) {
-  //your code
+function numInStr(arr) {
+  const res = [];
+  arr.map((str) => {
+    for (let char of str) {
+      if (char >= "0" && char <= "9") {
+        res.push(str);
+        break;
+      }
+    }
+  });
+  return res;
 }
 
 exports.solution = numInStr;
