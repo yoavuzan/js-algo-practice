@@ -21,8 +21,18 @@ Notes
 Coordinates can be positive or negative integers.
 */
 
-function overlappingRectangles(Coordinates1  ) {
-  //your code
+function overlappingRectangles(cord1,cord2) {
+  const max_left_x = Math.max(cord1[0].x,cord2[0].x);
+  const min_right_x = Math.min(cord1[1].x,cord2[1].x);
+
+  const x_overlap = Math.max(0, min_right_x - max_left_x)
+
+  const max_left_y = Math.max(cord1[0].y,cord2[0].y);
+  const min_right_y =Math.min(cord1[1].y,cord2[1].y);
+
+  const y_overlap = Math.max(0, min_right_y - max_left_y)
+  
+  return x_overlap*y_overlap
 }
 
 exports.solution = overlappingRectangles;

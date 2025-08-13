@@ -27,7 +27,7 @@ function missingLetter(string) {
   }
 
   return "No Missing Letter";
-}
+}                                    
 
 
 exports.solution = missingLetter;
