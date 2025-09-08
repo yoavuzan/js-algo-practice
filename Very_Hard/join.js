@@ -17,9 +17,35 @@ join(["aaa", "bbb", "ccc", "ddd"]) ➞ ["aaabbbcccddd", 0]
 Notes
 More specifically, look at the overlap between the previous words ending letters and the next word's beginning letters.
 */
+function join(array) {
+  let min = 90;
+  let res = array[0]; // start with first word
 
-function join( /*args*/ ) {
-  //your code
+  for (let i = 1; i < array.length; i++) {
+    const word = array[i];
+    let slice = Math.min(res.length, word.length);
+    let overlap = 0;
+
+    // find the largest overlap
+    while (slice > 0) {
+      if (res.slice(-slice) === word.slice(0, slice)) {
+        overlap = slice;
+        break;
+      }
+      slice--;
+    }
+
+    // update min overlap found
+    if (overlap < min) {
+      min = overlap;
+    }
+
+    // merge
+    res = res + word.slice(overlap);
+  }
+
+  return [res, min];
 }
+
 
 exports.solution = join;

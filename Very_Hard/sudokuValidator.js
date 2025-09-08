@@ -29,9 +29,61 @@ sudokuValidator([
  [8, 7, 3, 5, 1, 2, 9, 6, 4]
 ]) ➞ false
 */
+function checkRange(num){
+  return num > 0 && num < 10;
+}
 
-function sudokuValidator(/*args*/) {
-  //your code
+function checkRows(matrix) {
+  const mySet = new Set();
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if(!checkRange(matrix[i][j])) return false;
+      mySet.add(matrix[i][j]);
+    }
+    if (mySet.size !== 9) {
+      return false;
+    }
+    mySet.clear();
+  }
+  return true;
+}
+
+function checkCols(matrix) {
+  const mySet = new Set();
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if(!checkRange(matrix[j][i])) return false;
+      mySet.add(matrix[j][i]);
+    }
+    if (mySet.size !== 9) {
+      return false;
+    }
+    mySet.clear();
+  }
+  return true;
+}
+
+function checkBoxes(matrix) {
+  const mySet = new Set();
+  for (let i = 0; i < matrix.length; i += 3) {
+    for (let j = 0; j < matrix[i].length; j += 3) {
+      for (let z = i; z < i + 3; z++) {
+        for (let k = j; k < j + 3; k++) {
+          if(!checkRange(matrix[z][k])) return false;
+          mySet.add(matrix[z][k]);
+        }
+      }
+      if (mySet.size !== 9) {
+        return false;
+      }
+      mySet.clear();
+    }
+  }
+  return true;
+}
+
+function sudokuValidator(matrix) {
+  return checkRows(matrix) && checkCols(matrix) && checkBoxes(matrix);
 }
 
 exports.solution = sudokuValidator;

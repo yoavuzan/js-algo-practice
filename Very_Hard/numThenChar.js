@@ -30,8 +30,55 @@ Notes
 Test cases will containg integer and float numbers and single letters.
 */
 
-function numThenChar( /*args*/ ) {
-  //your code
+function numThenChar(matrix) {
+  const { Heap } = require("heap-js");
+
+  const minNumber = new Heap((a, b) => a - b);
+
+  const minLowerChars = new Heap((a, b) => a.localeCompare(b));
+
+  const minUpperChars = new Heap((a, b) => a.localeCompare(b));
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (typeof matrix[i][j] === "number") {
+        minNumber.push(matrix[i][j]);
+      } else {
+        if (matrix[i][j].toUpperCase() === matrix[i][j]) {
+          minUpperChars.push(matrix[i][j]);
+        } else {
+          minLowerChars.push(matrix[i][j]);
+        }
+      }
+    }
+  }
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (!minNumber.isEmpty()) {
+        matrix[i][j] = minNumber.pop();
+      } else {
+        if (!minUpperChars.isEmpty()) {
+          matrix[i][j] = minUpperChars.pop();
+        } else {
+          matrix[i][j] = minLowerChars.pop();
+        }
+      }
+    }
+  }
+
+  return matrix;
 }
+
+console.log(
+  numThenChar([
+    [1, 2, 4.4, "f", "a", "b"],
+    [0],
+    [0.5, "d", "X", 3, "s"],
+    ["f", "e", 8],
+    ["p", "Y", "Z"],
+    [12, 18],
+  ])
+);
 
 exports.solution = numThenChar;

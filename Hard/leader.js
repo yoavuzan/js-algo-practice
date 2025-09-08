@@ -15,8 +15,19 @@ Notes
 Add elements in the new array in the same way they occur in the input array.
 */
 
-function leader( /*args*/ ) {
-  //your code
+function leader(arr) {
+  const leaders = [];
+  let maxFromRight = arr[arr.length - 1]; 
+  leaders.push(maxFromRight);
+
+  for (let i = arr.length - 2; i >= 0; i--) {
+    if (arr[i] > maxFromRight) {
+      maxFromRight = arr[i]; 
+      leaders.push(maxFromRight);
+    }
+  }
+  
+  return leaders.reverse();
 }
 
 exports.solution = leader;

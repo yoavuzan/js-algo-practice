@@ -44,8 +44,8 @@ In a maze of size m x n, you enter at [0, 0] and exit at [m-1, n-1].
 There can be dead ends in a maze - one exit path is sufficient.
 */
 
-function canExit( /*args*/ ) {
-  //your code
+function canExit( mtrix ) {
+  
 }
 
 exports.solution = canExit;

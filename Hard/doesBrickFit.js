@@ -13,8 +13,8 @@ We assume that the brick fits if its sizes equal the ones of the hole (i.e. bric
 You can't put a brick in at a non-orthogonal angle.
 */
 
-function doesBrickFit( /*args*/ ) {
-  //your code
+function doesBrickFit(a, b, c, d, e) {
+  return d*e === a*b || d*e === a*c || d*e === b*c 
 }
 
 exports.solution = doesBrickFit;

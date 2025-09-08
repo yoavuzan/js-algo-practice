@@ -21,8 +21,15 @@ matrix(4) ➞ [
 ]
 */
 
-function matrix( /*args*/ ) {
-  //your code
+function matrix(num) {
+  let fill = 1;
+  let move = num - 1;
+  let [x, y] = [0, 0];
+  const res = Array(rows)
+    .fill(null)
+    .map(() => Array(num).fill(0));
+  let rowOrCol = true;
+ 
 }
 
 exports.solution = matrix;
