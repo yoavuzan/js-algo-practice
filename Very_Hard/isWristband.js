@@ -81,7 +81,3 @@ function isWristband(array) {
 }
 
 exports.solution = isWristband;
-{[["A", "B", "C"],
-  ["B", "C", "A"],
-  ["C", "A", "B"],
-  ["A", "B", "A"]]}
