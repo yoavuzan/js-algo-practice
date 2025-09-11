@@ -56,7 +56,8 @@
     "test-numThenChar": "jest --testPathPattern=Very_Hard/numThenChar.test.js",
     "test-sudokuValidator": "jest --testPathPattern=Very_Hard/sudokuValidator.test.js",
     "test-zeroIndices": "jest --testPathPattern=Very_Hard/zeroIndices.test.js",
-    "test-islandCounter": "jest --testPathPattern=Very_Hard/islandCounter.test.js"
+    "test-islandCounter": "jest --testPathPattern=Very_Hard/islandCounter.test.js",
+    "test-validParenthesis": "jest --testPathPattern=Very_Hard/validParenthesis.test.js"
   },
   "author": "",
   "license": "ISC",
